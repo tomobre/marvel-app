@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useRouter } from 'next/navigation';
 import { useAppContext } from '../context';
 
 const Container = styled.div`
@@ -35,7 +34,6 @@ const Input = styled.input`
 export default function SearchBox() {
   const { searchState } = useAppContext();
   const [search, setSearch] = searchState;
-  const router = useRouter();
 
   return (
     <Container>

@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "coverage": "jest --coverage"
   },
   "dependencies": {
     "components": "^0.1.0",
@@ -18,6 +21,12 @@
     "use-debounce": "^10.0.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.1",
+    "cross-fetch": "^4.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "prettier": "^3.2.5",
     "autoprefixer": "^10.4.18",
     "eslint": "8.57.0",
     "eslint-config-next": "14.1.3",

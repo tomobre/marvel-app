@@ -33,7 +33,8 @@ const Input = styled.input`
 `;
 
 export default function SearchBox() {
-  const { setSearch } = useAppContext();
+  const { searchState } = useAppContext();
+  const [search, setSearch] = searchState;
   const router = useRouter();
 
   return (

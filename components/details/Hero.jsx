@@ -33,14 +33,14 @@ const Name = styled.h2`
 `;
 
 export default function Hero({ name, description, image, id }) {
-  const { favorites, setFavorites } = useAppContext();
+  const { favoritesState } = useAppContext();
+  const [favorites, setFavorites] = favoritesState;
   const checkFav = favorites?.findIndex((character) => character.id === id);
-
   const toggleFavorite = (id) => {
     if (checkFav === -1) {
       setFavorites([...favorites, { name, description, image, id }]);
     } else {
-      favorites.splice(checkFav, 1);
+      favorites?.splice(checkFav, 1);
       setFavorites([...favorites]);
     }
   };

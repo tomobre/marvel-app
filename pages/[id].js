@@ -3,6 +3,7 @@ import Wrapper from '../components/details/Wrapper';
 import Hero from '../components/details/Hero';
 import ComicCard from '../components/details/ComicCard';
 import ScrollComic from '../components/details/ScrollComic';
+import Layout from '../components/Layout';
 
 export async function getStaticPaths() {
   const data = await getData();
@@ -45,7 +46,7 @@ export async function getStaticProps(context) {
 
 export default function Page({ characterResults, comicsResults }) {
   return (
-    <div>
+    <Layout>
       <Hero
         id={characterResults[0].id.toString()}
         name={characterResults[0].name}
@@ -77,6 +78,6 @@ export default function Page({ characterResults, comicsResults }) {
           })}
         </ScrollComic>
       </Wrapper>
-    </div>
+    </Layout>
   );
 }

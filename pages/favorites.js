@@ -22,9 +22,12 @@ const Title = styled.h3`
 `;
 
 export function FavoritesResult() {
-  const { favorites, search } = useAppContext();
+  const { searchState, favoritesState } = useAppContext();
+  const [search, setSearch] = searchState;
+  const [favorites, setFavorite] = favoritesState;
+  console.log(search);
   const data =
-    search !== ''
+    search !== '' && search !== undefined
       ? favorites?.filter((favorite) =>
           favorite.name.toLowerCase().startsWith(search?.toLowerCase())
         )

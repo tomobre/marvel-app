@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useAppContext } from '../context';
+import { useEffect } from 'react';
 
 const Container = styled.div`
   height: 260px;
@@ -34,15 +35,20 @@ const Footer = styled.div`
 `;
 
 export default function Card({ image, name, id, description }) {
-  const { favorites, setFavorites } = useAppContext();
+  const { favoritesState } = useAppContext();
+  const [favorites, setFavorites] = favoritesState;
+
   const checkFav = favorites?.findIndex((character) => character.id === id);
+
   name = name?.length > 30 ? name.slice(0, 28) + '...' : name;
+
+  useEffect(() => {}, [favorites]);
 
   const toggleFavorite = (id) => {
     if (checkFav === -1) {
       setFavorites([...favorites, { name, description, image, id }]);
     } else {
-      favorites.splice(checkFav, 1);
+      favorites?.splice(checkFav, 1);
       setFavorites([...favorites]);
     }
   };

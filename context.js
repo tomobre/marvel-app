@@ -1,14 +1,19 @@
 'use client';
 import { createContext, useContext, useState } from 'react';
 
-const AppContext = createContext({ hello: 'world' });
+const AppContext = createContext({ favoritesState: [], searchState: [] });
 
 export function AppWrapper({ children }) {
   const [favorites, setFavorites] = useState([]);
   const [search, setSearch] = useState('');
 
   return (
-    <AppContext.Provider value={{ favorites, setFavorites, search, setSearch }}>
+    <AppContext.Provider
+      value={{
+        favoritesState: [favorites, setFavorites],
+        searchState: [search, setSearch],
+      }}
+    >
       {children}
     </AppContext.Provider>
   );

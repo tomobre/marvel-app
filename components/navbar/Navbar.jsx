@@ -20,7 +20,8 @@ const Count = styled.p`
 `;
 
 export default function Navbar() {
-  const { favorites } = useAppContext();
+  const { favoritesState } = useAppContext();
+  const [favorites, setFavorites] = favoritesState;
   return (
     <Wrapper>
       <Link href='./'>

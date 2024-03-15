@@ -11,8 +11,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ data }) {
-  if (!process.env.NEXT_PUBLIC_URL) return null;
-
   const characterList = data?.data?.results;
 
   return (

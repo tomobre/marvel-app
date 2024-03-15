@@ -5,9 +5,10 @@ const AppContext = createContext({ hello: 'world' });
 
 export function AppWrapper({ children }) {
   const [favorites, setFavorites] = useState([]);
+  const [search, setSearch] = useState('');
 
   return (
-    <AppContext.Provider value={{ favorites, setFavorites }}>
+    <AppContext.Provider value={{ favorites, setFavorites, search, setSearch }}>
       {children}
     </AppContext.Provider>
   );

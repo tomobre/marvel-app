@@ -4,7 +4,6 @@ import { useAppContext } from '../context';
 import styled from 'styled-components';
 import SearchBox from '../components/SearchBox';
 import ResultCount from '../components/ResultCount';
-import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
 import Layout from '../components/Layout';
 
@@ -23,9 +22,7 @@ const Title = styled.h3`
 `;
 
 export function FavoritesResult() {
-  const searchParams = useSearchParams();
-  const { favorites } = useAppContext();
-  const search = searchParams.get('search');
+  const { favorites, search } = useAppContext();
   const data =
     search !== ''
       ? favorites?.filter((favorite) =>

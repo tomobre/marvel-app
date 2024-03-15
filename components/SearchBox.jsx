@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useDebounce } from 'use-debounce';
+import { useAppContext } from '../context';
 
 const Container = styled.div`
   display: flex;
@@ -34,13 +33,8 @@ const Input = styled.input`
 `;
 
 export default function SearchBox() {
-  const [text, setText] = useState('');
+  const { setSearch } = useAppContext();
   const router = useRouter();
-  const [query] = useDebounce(text, 500);
-
-  useEffect(() => {
-    router?.replace(`?search=${query}`);
-  }, [query, router]);
 
   return (
     <Container>
@@ -49,7 +43,7 @@ export default function SearchBox() {
         role='search'
         placeholder=' SEARCH A CHARACTER...'
         onChange={(e) => {
-          setText(e.target.value);
+          setSearch(e.target.value);
         }}
         type='text'
       />

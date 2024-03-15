@@ -3,27 +3,18 @@ import Card from '../components/Card';
 import SearchBox from '../components/SearchBox';
 import ResultCount from '../components/ResultCount';
 import Layout from '../components/Layout';
+import { getData, getSearchResult } from '../fetch/fetch';
 
-async function fetchData() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/data?search=`, {
-    cache: 'no-store',
-  });
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
-
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data');
-  }
-
-  return res.json();
+export async function getStaticProps() {
+  const data = await getData();
+  return { props: { data } };
 }
 
-export default function Home() {
+export default function Home({ data }) {
   if (!process.env.NEXT_PUBLIC_URL) return null;
-  //const data = await fetchData();
-  //  const characterList = data?.data?.results;
-  const characterList = [];
+
+  const characterList = data?.data?.results;
+
   return (
     <Layout>
       <SearchBox />

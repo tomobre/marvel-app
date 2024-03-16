@@ -4,7 +4,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Navbar />
-      <main>{children}</main>
+      <main style={{ background: '#d8dcdd;' }}>{children}</main>
     </>
   );
 }

@@ -1,4 +1,9 @@
 module.exports = {
+  publicRuntimeConfig: {
+    privateKey: process.env.PRIVATE_KEY,
+    publicKey: process.env.PUBLIC_KEY,
+    apiKey: process.env.API_KEY,
+  },
   //output: 'export',
   reactStrictMode: true,
   compiler: {

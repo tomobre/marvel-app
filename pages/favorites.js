@@ -25,11 +25,10 @@ export function FavoritesResult() {
   const { searchState, favoritesState } = useAppContext();
   const [search, setSearch] = searchState;
   const [favorites, setFavorite] = favoritesState;
-  console.log(search);
   const data =
     search !== '' && search !== undefined
       ? favorites?.filter((favorite) =>
-          favorite.name.toLowerCase().startsWith(search?.toLowerCase())
+          favorite.name.toLowerCase().startsWith(search?.toLowerCase()),
         )
       : favorites;
   return (

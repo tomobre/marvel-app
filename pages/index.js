@@ -5,6 +5,8 @@ import ResultCount from '../components/ResultCount';
 import Layout from '../components/Layout';
 import { getData, getSearchResult } from '../fetch/fetch';
 import { useAppContext } from '../context';
+import { useDebounce } from 'use-debounce';
+import { useEffect, useState } from 'react';
 
 export async function getStaticProps() {
   const data = await getData();
@@ -12,17 +14,22 @@ export async function getStaticProps() {
 }
 
 export default function Home({ data }) {
+  const [characterList, setCharacterList] = useState(data?.data?.results);
   const { searchState } = useAppContext();
   const [search] = searchState;
   const [query] = useDebounce(search, 500);
-  let characterList = data?.data?.results;
 
-  useEffect(async () => {
-    if (query !== '') {
-      const searchresult = await getSearchResult(query);
-      characterList = searchresult?.data?.results;
+  useEffect(() => {
+    if (query !== '' && query !== undefined) {
+      const newCharacters = async () => {
+        const characters = await getSearchResult(query);
+        setCharacterList(characters?.data.results);
+      };
+      newCharacters();
+    } else if (characterList !== data?.data?.results && query === '') {
+      setCharacterList(data?.data?.results);
     }
-  }, [query, search, characterList]);
+  }, [query]);
 
   return (
     <Layout>

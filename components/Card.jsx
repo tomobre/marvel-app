@@ -6,7 +6,7 @@ import { useAppContext } from '../context';
 import { useEffect } from 'react';
 
 const Container = styled.div`
-  height: 260px;
+  height: 266px;
 
   @media only screen and (max-width: 375px) {
     display: flex;
@@ -28,6 +28,8 @@ const Footer = styled.div`
   position: relative;
   background-color: black;
   padding: 1rem;
+  padding-bottom: 0.3rem;
+  padding-top: 0.2rem;
   width: 180px;
   display: flex;
   justify-content: space-between;

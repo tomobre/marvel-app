@@ -66,7 +66,13 @@ export default function Hero({ name, description, image, id }) {
           />
         )}
         <GridCol>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}
+          >
             <Name>{name}</Name>
             <div
               onClick={() => {

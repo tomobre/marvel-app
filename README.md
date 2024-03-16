@@ -73,7 +73,7 @@ pnpm dev
 bun dev
 ```
 
-Abri [http://localhost:4000](http://localhost:4000) en tu navegador para ver el resultado.
+Abri [http://localhost:3000](http://localhost:3000) en tu navegador para ver el resultado.
 
 ## Mas sobre Next js
 

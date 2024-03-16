@@ -24,7 +24,6 @@ jest.mock('@/components/ResultCount', () => () => (
 describe('home page', () => {
   it('it should render properly the components inside', async () => {
     const HomeComp = await resolvedComponent(Home, {});
-
     render(<HomeComp />);
     expect(screen.queryByTestId('child1')).toBeInTheDocument();
     expect(screen.queryByTestId('child2')).toBeInTheDocument();

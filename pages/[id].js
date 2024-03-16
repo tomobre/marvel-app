@@ -48,11 +48,15 @@ export default function Page({ characterResults, comicsResults }) {
   return (
     <Layout>
       <Hero
-        id={characterResults[0].id.toString()}
-        name={characterResults[0].name}
-        description={characterResults[0].description}
-        image={`${characterResults[0].thumbnail.path}.${characterResults[0].thumbnail.extension}`}
+        id={characterResults && characterResults[0].id.toString()}
+        name={characterResults && characterResults[0].name}
+        description={characterResults && characterResults[0].description}
+        image={
+          characterResults &&
+          `${characterResults[0].thumbnail.path}.${characterResults[0].thumbnail.extension}`
+        }
       />
+
       <Wrapper color={'white'}>
         <h3
           role='headingTitle'
@@ -65,7 +69,7 @@ export default function Page({ characterResults, comicsResults }) {
           COMICS
         </h3>
         <ScrollComic>
-          {comicsResults.slice(0, 20).map((comic) => {
+          {comicsResults?.slice(0, 20).map((comic) => {
             const date = comic.dates[0].date.slice(0, 4);
             return (
               <ComicCard

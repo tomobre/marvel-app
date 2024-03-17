@@ -4,27 +4,20 @@ Aplicacion interactiva que permite ver personajes de Marvel, los detalles de cad
 
 ## Stack
 
-Proyecto desarrollado con Javascript usando el Stack de Next.js para toda la estructura, Styled Components para los estilos, Use Debounce para la optimizacion en rendereo de busqueda de personajes y MD5 para generar el hash necesario para consumir la API.
+Proyecto desarrollado con Javascript usando el Stack de Next.js para toda la estructura, Styled Components para los estilos, Use Debounce para la optimizacion en rendereo de busqueda de personajes, Jest para el uso de pruebas unitarias, y MD5 para generar el hash necesario para consumir la API.
 
 ## Estructura
 
-El proyecto esta en su mayoria dentro de la carpeta src/app. Donde se realiza automaticamente con Next el enrutamiento. En el archivo /page de esa carpeta se encuentra la pagina principal con el maquetado.
+El proyecto esta en su mayoria dentro de la carpeta pages. Donde se realiza automaticamente con Next el enrutamiento. En el archivo /index de esa carpeta se encuentra la pagina principal con el maquetado.
+La carpeta \_\_tests\_\_ por el otro lado contiene todos los tests generados con Jest para comprobar que todos los componentes y paginas principales funcionen correctamente.
 
 ### Componentes
 
 Dentro de la carpeta /components se encuentran todos los componentes reutilizados para la pagina principal como para los detalles de los personajes o los favoritos.
 
-### Layout
-
-El layout del sitio web con su navbar.
-
-### 404
-
-Archivo sencillo que se muestra con una ruta inexistente.
-
 ### Favorites
 
-La ruta de los personajes favoritos seleccionados. El maquetado en /page.
+La ruta de los personajes favoritos seleccionados..
 
 ### Fetch
 
@@ -40,7 +33,7 @@ El router dinamico de Next js permite renderear cada uno de los personajes de Ma
 
 ### Public
 
-Por fuera de la carpeta /app en public podemos encontrar las pocas imagenes utilizadas para el sitio web de manera estatica.
+En public podemos encontrar las pocas imagenes utilizadas para el sitio web de manera estatica.
 
 ## Marvel API
 

@@ -9,7 +9,7 @@ const Grid = styled.div`
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
 
-  @media only screen and (max-width: 425px) {
+  @media only screen and (max-width: 600px) {
     display: flex;
     justify-content: center;
     align-items: center;

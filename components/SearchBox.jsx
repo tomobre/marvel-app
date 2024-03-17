@@ -39,6 +39,7 @@ export default function SearchBox() {
     <Container>
       <span>🔍</span>
       <Input
+        value={search}
         role='search'
         placeholder=' SEARCH A CHARACTER...'
         onChange={(e) => {
